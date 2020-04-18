@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 """
-Note: This file was taken from the unoffiicial Python Fitbit client Git repo:
+Note: This file was adapted from the unoffiicial Python Fitbit client Git repo:
 https://raw.githubusercontent.com/orcasgit/python-fitbit/master/gather_keys_oauth2.py
 """
 import cherrypy
