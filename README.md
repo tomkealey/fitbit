@@ -15,7 +15,7 @@ It makes use of the unofficial Fitbit client for Python https://github.com/orcas
 
 2. Next login to your Fitbit account and create a new application at https://dev.fitbit.com/apps/new.
 Fill in details in the form as appropriate. Ensure that the "OAuth 2.0 Application Type is "Personal" and that the callback URL is "http://127.0.0.1:8080/"
-The call back URL will be used to receive the token and secret later on.
+The callback URL will be used to receive the token and secret later on.
 
 2. After completing the form your "OAuth 2.0 Client ID" and "Client Secret" should be displayed.
 Copy them from screen and paste them into the file "client_details.template.json"

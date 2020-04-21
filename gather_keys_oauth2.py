@@ -16,6 +16,9 @@ from base64 import b64encode
 from fitbit.api import Fitbit
 from oauthlib.oauth2.rfc6749.errors import MismatchingStateError, MissingTokenError
 
+CLIENT_DETAILS_FILE = 'client_details.json'  # configuration for for the client
+USER_DETAILS_FILE = 'user_details.json'  # user details file
+
 
 class OAuth2Server:
     def __init__(self, client_id, client_secret,
@@ -44,8 +47,7 @@ class OAuth2Server:
         url, _ = self.fitbit.client.authorize_token_url()
         # Open the web browser in a new thread for command-line browser support
         threading.Timer(1, webbrowser.open, args=(url,)).start()
-        print('URL:')
-        print(url)
+        print('URL for authenticating is: %s' url)
 
         # Same with redirect_uri hostname and port.
         urlparams = urlparse(self.redirect_uri)
@@ -93,7 +95,9 @@ if __name__ == '__main__':
         print("Arguments: client_id and client_secret")
         sys.exit(1)
 
-    server = OAuth2Server(*sys.argv[1:])
+    client_id = sys.argv[1]
+    client_secret = sys.argv[2]
+    server = OAuth2Server(client_id, client_secret)
     server.browser_authorize()
 
     profile = server.fitbit.user_profile_get()
@@ -103,3 +107,13 @@ if __name__ == '__main__':
     print('TOKEN\n=====\n')
     for key, value in server.fitbit.client.session.token.items():
         print('{} = {}'.format(key, value))
+
+    print("Writing client details to file for usage on next collection.")
+    client_details = {'client_id': client_id, 'client_secret': client_secret}  # Details of application
+    with open(CLIENT_DETAILS_FILE, 'w') as f:
+        json.dump(client_details, f)
+
+    print("writing user details to file for usage on next collection.")
+    with open(CLIENT_DETAILS_FILE, 'w') as f:
+        json.dump(server.fitbit.client.session.token, f)
+
