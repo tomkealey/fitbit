@@ -73,9 +73,9 @@ def _get_api_call():
     # profile info
     profile_info = '/1/user/-/profile.json'
     # Sleep between two dates
-    sleep_dates = '/1.2/user/-/sleep/date/2020-04-17/2020-04-18.json'
+    sleep_dates = '/1.2/user/-/sleep/date/2020-04-13/2020-04-17.json'
 
-    return steps_dates
+    return sleep_dates
 
 def run():
     client_id, client_secret = _get_client_details()
