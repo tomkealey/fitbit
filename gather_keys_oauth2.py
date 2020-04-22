@@ -10,6 +10,7 @@ import sys
 import threading
 import traceback
 import webbrowser
+import json
 
 from urllib.parse import urlparse
 from base64 import b64encode
@@ -47,7 +48,10 @@ class OAuth2Server:
         url, _ = self.fitbit.client.authorize_token_url()
         # Open the web browser in a new thread for command-line browser support
         threading.Timer(1, webbrowser.open, args=(url,)).start()
-        print('URL for authenticating is: %s' url)
+        print()
+        print('URL for authenticating is:')
+        print(url)
+        print()
 
         # Same with redirect_uri hostname and port.
         urlparams = urlparse(self.redirect_uri)
@@ -90,7 +94,6 @@ class OAuth2Server:
 
 
 if __name__ == '__main__':
-
     if not (len(sys.argv) == 3):
         print("Arguments: client_id and client_secret")
         sys.exit(1)
@@ -113,7 +116,7 @@ if __name__ == '__main__':
     with open(CLIENT_DETAILS_FILE, 'w') as f:
         json.dump(client_details, f)
 
-    print("writing user details to file for usage on next collection.")
-    with open(CLIENT_DETAILS_FILE, 'w') as f:
+    print("Writing user details to file for usage on next collection.")
+    with open(USER_DETAILS_FILE, 'w') as f:
         json.dump(server.fitbit.client.session.token, f)
 

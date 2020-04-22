@@ -81,8 +81,8 @@ def run():
     client_id, client_secret = _get_client_details()
     access_token, refresh_token, expires_at = _get_user_details()
 
-    print(f'Running Fitbit request with details: {client_id} {client_secret}'
-          f' {access_token} {refresh_token} {expires_at}')
+    #print(f'Running Fitbit request with details: {client_id} {client_secret}'
+    #      f' {access_token} {refresh_token} {expires_at}')
     auth2_client = Fitbit(client_id, client_secret, oauth2=True,
                           access_token=access_token,
                           refresh_token=refresh_token, expires_at=expires_at,
