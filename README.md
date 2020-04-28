@@ -1,9 +1,11 @@
 # Fitbit Collect
 A script to collect Fitbit data from your Fitbit account.
 
-If you own a Fitbit, your data is likely available in your online account. Fitbit offers an API so that you can reteive this data and analyse it yourself. This script runs through the steps needed to access the API
+If you own a Fitbit, your data is likely available in your online account. Fitbit offers an API so that you can retreive this data and analyse it yourself. This script runs through the steps needed to access the API
 
 It makes use of the unofficial Fitbit client for Python https://github.com/orcasgit/python-fitbit
+
+More details in my blog post https://davgibbs.com/how-to-get-fitbit-with-python/
 
 ## Steps
 1. After "git clone" on this repo, start by creating a Python virtualenv (with a Python 3 version) and installing dependencies inside the directory:
