@@ -17,8 +17,8 @@ from base64 import b64encode
 from fitbit.api import Fitbit
 from oauthlib.oauth2.rfc6749.errors import MismatchingStateError, MissingTokenError
 
-CLIENT_DETAILS_FILE = 'client_details.json'  # configuration for for the client
-USER_DETAILS_FILE = 'user_details.json'  # user details file
+CLIENT_DETAILS_FILE = './config/client_details.json'  # configuration for for the client
+USER_DETAILS_FILE = './config/user_details.json'  # user details file
 
 
 class OAuth2Server:

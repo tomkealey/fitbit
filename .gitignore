@@ -1,5 +1,18 @@
 fitbit_data.json
-user_details.json
-client_details.json
+
+# Environment
 env/
 venv/
+
+# Config
+config/*.*
+user_details.json
+client_details.json
+
+# Output
+output/*.*
+
+# Script
+fitbit.sh
+launchd/*.*
+logs/*.*
