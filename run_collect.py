@@ -15,7 +15,7 @@ USER_DETAILS_FILE = './config/user_details.json'  # user details file
 
 RESULT_FILE = './output/fitbit_data.json'  # The place where we will place the results
 
-FIRST_RECORD = arrow.get("2019-07-01") # First Fitbit weigh-in
+FIRST_RECORD = arrow.get("2022-05-01") # First Fitbit weigh-in
 TODAY = arrow.get(date.today()) 
 
 def refresh_callback(token):
